@@ -1,0 +1,1778 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/integro_diff_1d.npz",
+      "sha256": "1f289a1d2c9ba155f1ae7259768ecbc655119c580c737f4140384ae576d5d7aa"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.23354289995040745,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "atoms": [
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -1.0
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.991565168420931
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.9558239495713978
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.8926024664975557
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.8037049589725231
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.76
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.76
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.6916870430603532
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.5597708310739475
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.41175116146284263
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.33
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.33
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.2518862256915055
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.08477501304173529
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.08
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.08
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.08477501304173529
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.2518862256915055
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.41175116146284263
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.47
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.47
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.5597708310739475
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.6916870430603532
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.8037049589725231
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.81
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.81
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.8926024664975557
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.9558239495713978
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.991565168420931
+        ]
+      }
+    ],
+    "certificate_type": "finite_jet_functional_coefficient_rank",
+    "constraint_names": [
+      "nonlocal_0",
+      "nonlocal_1",
+      "nonlocal_2",
+      "nonlocal_3",
+      "nonlocal_4",
+      "left_boundary"
+    ],
+    "full_row_rank": true,
+    "independence_witness": "Each residual has a unique first-derivative evaluation at its anchor; after those coefficients vanish, the boundary value atom is unique.",
+    "matrix": [
+      [
+        0.0,
+        -0.0045671411632589275,
+        -0.01096872786265348,
+        -0.01788431115538916,
+        -0.02469439740898349,
+        0.14489720494198638,
+        0.4472135954999579,
+        -0.02974848314444221,
+        -0.03087755481911003,
+        -0.026979473772154903,
+        0.0,
+        0.0,
+        -0.019437288695187866,
+        -0.011425752070925225,
+        0.0,
+        0.0,
+        -0.005503488262075408,
+        -0.002218308826379774,
+        -0.0007765510882923568,
+        0.0,
+        0.0,
+        -0.0002482317263921773,
+        -7.673963378554909e-05,
+        -2.426373426526433e-05,
+        0.0,
+        0.0,
+        -8.16878361936749e-06,
+        -2.9057131359979254e-06,
+        -8.891794260091012e-07
+      ],
+      [
+        0.0,
+        -0.0015377519180134723,
+        -0.004029356565379904,
+        -0.007664456332822509,
+        -0.013143750392452656,
+        0.0,
+        0.0,
+        -0.020805298451442484,
+        -0.02978555500418536,
+        -0.03733343383485594,
+        0.16412738954848455,
+        0.4472135954999579,
+        -0.03971383774771796,
+        -0.035083586209181054,
+        0.0,
+        0.0,
+        -0.025547717264056795,
+        -0.015475656302452344,
+        -0.007999057358336387,
+        0.0,
+        0.0,
+        -0.0036679865374118527,
+        -0.0015640255347829418,
+        -0.0006497854938767136,
+        0.0,
+        0.0,
+        -0.0002716949060778345,
+        -0.0001127474007360163,
+        -3.7642703239256775e-05
+      ],
+      [
+        0.0,
+        -0.0002051930911599773,
+        -0.00058423808729235,
+        -0.001287218308495467,
+        -0.0027140922197452775,
+        0.0,
+        0.0,
+        -0.005573804968267381,
+        -0.01084280549126676,
+        -0.0191711040651004,
+        0.0,
+        0.0,
+        -0.02957066197615193,
+        -0.03852189735758273,
+        0.18246314696398286,
+        0.4472135954999579,
+        -0.041600836615302526,
+        -0.03716067031062478,
+        -0.02785115924256289,
+        0.0,
+        0.0,
+        -0.018015462495098427,
+        -0.010438057238005389,
+        -0.00562624147203929,
+        0.0,
+        0.0,
+        -0.0028924395753565494,
+        -0.0013902920082581565,
+        -0.0005043801660695258
+      ],
+      [
+        0.0,
+        -1.2474946213222805e-05,
+        -3.844002256612287e-05,
+        -9.739791409068722e-05,
+        -0.00024996499873339745,
+        0.0,
+        0.0,
+        -0.0006576020488706975,
+        -0.0017124412813480266,
+        -0.00419996734805894,
+        0.0,
+        0.0,
+        -0.009224824891350491,
+        -0.01738844482231647,
+        0.0,
+        0.0,
+        -0.027318246001674356,
+        -0.035309394804750156,
+        -0.03768324602845665,
+        0.1999044771884812,
+        0.4472135954999579,
+        -0.0338123388792676,
+        -0.02622479509047375,
+        -0.018107879072336183,
+        0.0,
+        0.0,
+        -0.011331063310672816,
+        -0.006263485508912701,
+        -0.002459154819998605
+      ],
+      [
+        0.0,
+        -5.373972014024817e-07,
+        -1.7740197576712178e-06,
+        -5.077449714286437e-06,
+        -1.5466395243954997e-05,
+        0.0,
+        0.0,
+        -5.049408625822494e-05,
+        -0.0001695574521336908,
+        -0.0005531599784507447,
+        0.0,
+        0.0,
+        -0.00165341546004048,
+        -0.00430099870636415,
+        0.0,
+        0.0,
+        -0.009368877493586602,
+        -0.016711280533465687,
+        -0.024270950685078434,
+        0.0,
+        0.0,
+        -0.028967921753378666,
+        -0.02897197238343978,
+        -0.02482567131545261,
+        0.21510973943547979,
+        0.4472135954999579,
+        -0.01843817829101464,
+        -0.011512895895237907,
+        -0.004842531692517708
+      ],
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "num_columns": 29,
+    "num_rows": 6,
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "weak_functional",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "integro_diff_1d",
+    "rank": 6,
+    "smallest_singular_value": 0.47253744784277474,
+    "trial_space": "C^1([-1,1])"
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper weak-functional positivity theorem plus finite-jet functional-independence certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "weak_functional",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "inconclusive"
+  },
+  "problem": {
+    "constraint_count": 6,
+    "constraint_group_sizes": {
+      "boundary": 1,
+      "nonlocal_residual": 5
+    },
+    "constraints": [
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_0",
+        "physical_point": null,
+        "target": 0.8034997427535646,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.76
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 0.324,
+            "output": 0,
+            "point": [
+              -0.76
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.010212438103884426,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.024526821127589155,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.039990535474207965,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05521835126988176,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06651963053847948,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06904431155450626,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06032793735171103,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.04346309882072826,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.025548758324647803,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.01230617386737279,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.004960289330872954,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.001736421021423151,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0005550630143850372,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0001715950377129273,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -5.425535920512196e-05,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -1.8265955466392476e-05,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -6.497372095205453e-06,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -1.988265640750595e-06,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_1",
+        "physical_point": null,
+        "target": 0.9967728236560753,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.33
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 0.367,
+            "output": 0,
+            "point": [
+              -0.33
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0034385178212088074,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.009009915185774542,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.017138245370769883,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.02939031935681368,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0465220616295965,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0666025257369175,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08348009588822855,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0888028408512945,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.078449283658203,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05712643247237594,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.03460461948870649,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.017886436009160057,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.008201867238206978,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0034972674143201195,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.001452964535101605,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0006075282791304587,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00025211085233214225,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -8.417164329982968e-05,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_2",
+        "physical_point": null,
+        "target": 0.984819538128169,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.08
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 0.40800000000000003,
+            "output": 0,
+            "point": [
+              0.08
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00045882570034702045,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.001306396078230151,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.002878307639678159,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0060688947005537374,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.012463406802371922,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.024245250145280478,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.04286789189328705,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06612201031834399,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0861375811138245,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.09302229859267871,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08309378490401524,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06227708531854218,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.040283798785138054,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.023340205537213752,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.012580658389308335,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00646769151130787,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0031087874390399372,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0011278283378340925,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_3",
+        "physical_point": null,
+        "target": 0.8527556699434972,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.47
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 0.447,
+            "output": 0,
+            "point": [
+              0.47
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -2.789482774841978e-05,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -8.595450351447665e-05,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00021778835677346123,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0005589387291635256,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0014704428834180184,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00382913511257103,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.009391412493539308,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.02062733553759181,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.03888174464570388,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06108545508580569,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.07895420702779926,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08426229973247805,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.07560668821230142,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05864042451830205,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.040490448534089535,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.025337027820018235,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.014005579374013664,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00549883734471314,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_4",
+        "physical_point": null,
+        "target": 0.7139212808582669,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.81
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 0.48100000000000004,
+            "output": 0,
+            "point": [
+              0.81
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -1.2016566732540946e-06,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -3.966828771580547e-06,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -1.135352271348136e-05,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -3.458391113236282e-05,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.00011290820933512898,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0003791419890625994,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.001236903314248184,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0036971493636996007,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.009617325478568896,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.020949446948527493,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.037367559263898224,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05427149561038047,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0647742422074496,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.06478329969161795,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05551188864841866,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.04122902003996963,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.025743617839630258,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.010828230047666705,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "left_boundary",
+        "physical_point": [
+          -1.0
+        ],
+        "target": -0.2979881760329241,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "First-order integro-differential equation with an 18-node Gaussian-kernel quadrature.",
+    "evaluation_point_count": 161,
+    "family": "nonlocal_integro_differential",
+    "independence_witness": "Each residual has a unique first-derivative evaluation at its anchor; after those coefficients vanish, the boundary value atom is unique.",
+    "input_dim": 1,
+    "name": "integro_diff_1d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "weak_functional",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": "C^1([-1,1])"
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 1.6497849074348492e-06,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.954396995811591,
+      "lambda_min": 2.9866874342919963e-05,
+      "level_difference_operator_norm": 5.742149063174512e-05,
+      "lower_bound": -2.75608832754919e-05,
+      "positivity_threshold": 9.54396995811591e-09,
+      "relative_lower_bound": -2.887779760041568e-05,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 1.969511837442001e-09,
+      "status": "inconclusive"
+    },
+    "full_replicate_lambda_min": [
+      2.987266430425425e-05,
+      2.9864155612325083e-05,
+      2.9865951762577733e-05,
+      2.98646876142595e-05
+    ],
+    "full_spectrum": {
+      "condition_number": 31955.034358586432,
+      "eigenvalues": [
+        2.9866874342919963e-05,
+        0.0004724289772349708,
+        0.007163653620524349,
+        0.046109187211250104,
+        0.11166062211027919,
+        0.954396995811591
+      ],
+      "lambda_max": 0.954396995811591,
+      "lambda_min": 2.9866874342919963e-05,
+      "numerical_rank": 6,
+      "rank_tolerance": 9.54396995811591e-09
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 2.5547081340363686e-06,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.4735554569692352,
+      "lambda_min": 1.2623196196317876e-06,
+      "level_difference_operator_norm": 7.847416644774236e-05,
+      "lower_bound": -7.721329912945576e-05,
+      "positivity_threshold": 4.735554569692352e-09,
+      "relative_lower_bound": -0.0001630501728849721,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 4.5641148497719347e-10,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      1.261861977408946e-06,
+      1.2629054001945852e-06,
+      1.2612577567689346e-06,
+      1.2632250529041813e-06
+    ],
+    "out_spectrum": {
+      "condition_number": 375147.03059702815,
+      "eigenvalues": [
+        1.2623196196317876e-06,
+        2.6002561946855825e-05,
+        0.0008292086150159404,
+        0.008305371914838149,
+        0.05379525801086237,
+        0.4735554569692352
+      ],
+      "lambda_max": 0.4735554569692352,
+      "lambda_min": 1.2623196196317876e-06,
+      "numerical_rank": 6,
+      "rank_tolerance": 4.735554569692352e-09
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:33.956027+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

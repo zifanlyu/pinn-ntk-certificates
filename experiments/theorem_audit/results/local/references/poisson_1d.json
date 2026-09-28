@@ -1,0 +1,580 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/poisson_1d.npz",
+      "sha256": "dcd91614793deb66d695256265b0b84216365b1dd25adc8fddf9ebd5e51e132a"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.14891389990225434,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "certificate_type": "local_operator_coefficient_rank",
+    "independence_witness": null,
+    "locations": [
+      {
+        "columns": [
+          {
+            "alpha": [
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "dirichlet_left"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.7071067811865475
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.7071067811865475
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              2
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "poisson_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            -0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          -0.79
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              2
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "poisson_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            -0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          -0.34
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              2
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "poisson_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            -0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.07
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              2
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "poisson_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            -0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.43
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              2
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "poisson_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            -0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.82
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "dirichlet_right"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.7071067811865475
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.7071067811865475
+      }
+    ],
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "poisson_1d",
+    "trial_space": null
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper pointwise DNTK positivity theorem plus local operator-rank certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "positive"
+  },
+  "problem": {
+    "constraint_count": 7,
+    "constraint_group_sizes": {
+      "boundary": 2,
+      "interior": 5
+    },
+    "constraints": [
+      {
+        "group": "interior",
+        "name": "poisson_0",
+        "physical_point": [
+          -0.79
+        ],
+        "target": -1.3839416048893929,
+        "terms": [
+          {
+            "alpha": [
+              2
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -0.79
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "poisson_1",
+        "physical_point": [
+          -0.34
+        ],
+        "target": 0.10974109787361086,
+        "terms": [
+          {
+            "alpha": [
+              2
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -0.34
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "poisson_2",
+        "physical_point": [
+          0.07
+        ],
+        "target": 1.2337505594450853,
+        "terms": [
+          {
+            "alpha": [
+              2
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              0.07
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "poisson_3",
+        "physical_point": [
+          0.43
+        ],
+        "target": 1.6837569538350774,
+        "terms": [
+          {
+            "alpha": [
+              2
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              0.43
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "poisson_4",
+        "physical_point": [
+          0.82
+        ],
+        "target": 1.5737340577459316,
+        "terms": [
+          {
+            "alpha": [
+              2
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              0.82
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "dirichlet_left",
+        "physical_point": [
+          -1.0
+        ],
+        "target": -0.9912525499948442,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "dirichlet_right",
+        "physical_point": [
+          1.0
+        ],
+        "target": 0.9267500243910403,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "1D Poisson equation -u_xx=f with two Dirichlet constraints.",
+    "evaluation_point_count": 161,
+    "family": "elliptic",
+    "independence_witness": null,
+    "input_dim": 1,
+    "name": "poisson_1d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": null
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 1.0216552651326717e-05,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.4153474566816761,
+      "lambda_min": 0.00024614115292808324,
+      "level_difference_operator_norm": 7.851740308262719e-05,
+      "lower_bound": 0.0001674883939644857,
+      "positivity_threshold": 4.153474566816761e-09,
+      "relative_lower_bound": 0.00040324887337121567,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 4.253798899132181e-08,
+      "status": "positive"
+    },
+    "full_replicate_lambda_min": [
+      0.0002461936484048152,
+      0.0002460701738106471,
+      0.0002462330947287879,
+      0.0002460672156670614
+    ],
+    "full_spectrum": {
+      "condition_number": 1687.4360574845891,
+      "eigenvalues": [
+        0.00024614115292808324,
+        0.004660686779518161,
+        0.020059020765394245,
+        0.07548842399875598,
+        0.12282390243242387,
+        0.3557987124712398,
+        0.4153474566816761
+      ],
+      "lambda_max": 0.4153474566816761,
+      "lambda_min": 0.00024614115292808324,
+      "numerical_rank": 7,
+      "rank_tolerance": 4.153474566816761e-09
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 4.390024732486322e-06,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.18703471053486684,
+      "lambda_min": 7.5519663048936185e-06,
+      "level_difference_operator_norm": 4.8720512343857194e-05,
+      "lower_bound": -4.118810610566846e-05,
+      "positivity_threshold": 1.8703471053486683e-09,
+      "relative_lower_bound": -0.00022021637581538754,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 6.1470982730631085e-09,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      7.5492328719761275e-06,
+      7.54425217963108e-06,
+      7.5700271108819085e-06,
+      7.544202583512012e-06
+    ],
+    "out_spectrum": {
+      "condition_number": 24766.359247878227,
+      "eigenvalues": [
+        7.5519663048936185e-06,
+        0.00021139518251188776,
+        0.0011818872716218695,
+        0.009877864685296195,
+        0.01984931011986606,
+        0.1849044546628297,
+        0.18703471053486684
+      ],
+      "lambda_max": 0.18703471053486684,
+      "lambda_min": 7.5519663048936185e-06,
+      "numerical_rank": 7,
+      "rank_tolerance": 1.8703471053486683e-09
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:31.692050+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

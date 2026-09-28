@@ -1,0 +1,193 @@
+{
+  "aggregate_input": "experiments/theorem_audit/data/compatible_rank_convergence_conditioning.json",
+  "aggregate_input_sha256": "c887a65bcab08e57b50319c798a849029cda97781797ce42d7a47d27ac64f6c6",
+  "all_targets_functionally_compatible": true,
+  "analysis_script": "experiments/theorem_audit/plot_supportive_evidence.py",
+  "analysis_script_sha256": "c282cda9700b1b998ab794a94264595052df1940e9997c3408d31f345979cbf3",
+  "compatible_rows": 1080,
+  "display_floors": {
+    "conditioning_loss_ratio": 1e-16
+  },
+  "figure_size_inches": [
+    5.5,
+    4.1
+  ],
+  "outputs": {
+    "pdf": {
+      "bytes": 36728,
+      "path": "figures/compatible_rank_convergence_conditioning.pdf",
+      "sha256": "707cf48b63f8b1e957e68978775994763fecc4afac3d1d36336edaf674fa753c"
+    },
+    "png": {
+      "bytes": 191131,
+      "path": "figures/compatible_rank_convergence_conditioning.png",
+      "sha256": "1e526dd90e098612952c85f6772fb66e6bac720ae5be1fdcca2ecf8b6b1e0a84"
+    }
+  },
+  "plotted_statistics": "validated counts and five-seed medians",
+  "raw_source": {
+    "description": "Validated compatible-only control table",
+    "rows": 1080,
+    "sha256": "4fdb41f09e137ea6c0576586f3dacfabb01cb5b5f2a5e87bc23717b87681eabe"
+  },
+  "schema_version": 5,
+  "summary": {
+    "conditioning_width_16384": {
+      "nonlocal_boundary": {
+        "0.01": {
+          "median_final_to_initial_loss_ratio": 0.37102124550661053,
+          "median_initial_condition_number": 5926653.976545739,
+          "median_relative_gap": 1.687292701678587e-07,
+          "runs": 5
+        },
+        "0.1": {
+          "median_final_to_initial_loss_ratio": 0.3509206260133975,
+          "median_initial_condition_number": 60140.98719675342,
+          "median_relative_gap": 1.6627595365677384e-05,
+          "runs": 5
+        },
+        "1": {
+          "median_final_to_initial_loss_ratio": 0.012100428761998839,
+          "median_initial_condition_number": 744.2439694401194,
+          "median_relative_gap": 0.0013436454187895953,
+          "runs": 5
+        }
+      },
+      "nonlocal_diffusion": {
+        "0.01": {
+          "median_final_to_initial_loss_ratio": 0.932889404851244,
+          "median_initial_condition_number": 5065204.699953142,
+          "median_relative_gap": 1.974253873706725e-07,
+          "runs": 5
+        },
+        "0.1": {
+          "median_final_to_initial_loss_ratio": 0.5925499438663997,
+          "median_initial_condition_number": 42397.84512746847,
+          "median_relative_gap": 2.358610436434954e-05,
+          "runs": 5
+        },
+        "1": {
+          "median_final_to_initial_loss_ratio": 6.362160325588183e-30,
+          "median_initial_condition_number": 258.3605006437551,
+          "median_relative_gap": 0.003870560699132828,
+          "runs": 5
+        }
+      },
+      "pointwise_poisson": {
+        "0.01": {
+          "median_final_to_initial_loss_ratio": 0.17312564280154474,
+          "median_initial_condition_number": 37494.32262966267,
+          "median_relative_gap": 2.6670704519112337e-05,
+          "runs": 5
+        },
+        "0.1": {
+          "median_final_to_initial_loss_ratio": 0.00041745274067011147,
+          "median_initial_condition_number": 413.9325975819965,
+          "median_relative_gap": 0.0024158522567237738,
+          "runs": 5
+        },
+        "1": {
+          "median_final_to_initial_loss_ratio": 8.027322381648843e-31,
+          "median_initial_condition_number": 11.392559251135575,
+          "median_relative_gap": 0.08777658978603277,
+          "runs": 5
+        }
+      },
+      "vector_stokes": {
+        "0.01": {
+          "median_final_to_initial_loss_ratio": 0.7996642258651916,
+          "median_initial_condition_number": 37924.47176725297,
+          "median_relative_gap": 2.6368198511428713e-05,
+          "runs": 5
+        },
+        "0.1": {
+          "median_final_to_initial_loss_ratio": 0.0010980139519970041,
+          "median_initial_condition_number": 375.19450855900146,
+          "median_relative_gap": 0.0026652842117563785,
+          "runs": 5
+        },
+        "1": {
+          "median_final_to_initial_loss_ratio": 5.224615150427785e-32,
+          "median_initial_condition_number": 4.909488997439931,
+          "median_relative_gap": 0.2036871862879117,
+          "runs": 5
+        }
+      },
+      "weak_boundary": {
+        "0.01": {
+          "median_final_to_initial_loss_ratio": 0.3696302249043255,
+          "median_initial_condition_number": 31296.51312081486,
+          "median_relative_gap": 3.195244135152278e-05,
+          "runs": 5
+        },
+        "0.1": {
+          "median_final_to_initial_loss_ratio": 0.0001041489686440025,
+          "median_initial_condition_number": 302.91634279787604,
+          "median_relative_gap": 0.0033012414938181794,
+          "runs": 5
+        },
+        "1": {
+          "median_final_to_initial_loss_ratio": 0.0,
+          "median_initial_condition_number": 3.6990019211212246,
+          "median_relative_gap": 0.2703431956306972,
+          "runs": 5
+        }
+      },
+      "weak_poisson": {
+        "0.01": {
+          "median_final_to_initial_loss_ratio": 0.3413086258869246,
+          "median_initial_condition_number": 167885.5777443015,
+          "median_relative_gap": 5.9564377919528755e-06,
+          "runs": 5
+        },
+        "0.1": {
+          "median_final_to_initial_loss_ratio": 0.059339217906481806,
+          "median_initial_condition_number": 1681.0437898920272,
+          "median_relative_gap": 0.0005948685013519068,
+          "runs": 5
+        },
+        "1": {
+          "median_final_to_initial_loss_ratio": 6.554353389330828e-29,
+          "median_initial_condition_number": 19.972406285790353,
+          "median_relative_gap": 0.050069079593652366,
+          "runs": 5
+        }
+      }
+    },
+    "width_diagnostics": {
+      "16": {
+        "final_frozen_trajectory_discrepancy": 0.908,
+        "gap_retained_at_saved_checkpoints": 17,
+        "gap_retained_denominator": 110,
+        "maximum_relative_kernel_drift": 0.611,
+        "median_initial_relative_kernel_error": 0.223
+      },
+      "16384": {
+        "final_frozen_trajectory_discrepancy": 0.00691,
+        "gap_retained_at_saved_checkpoints": 110,
+        "gap_retained_denominator": 110,
+        "maximum_relative_kernel_drift": 0.000862,
+        "median_initial_relative_kernel_error": 0.00809
+      },
+      "256": {
+        "final_frozen_trajectory_discrepancy": 0.274,
+        "gap_retained_at_saved_checkpoints": 110,
+        "gap_retained_denominator": 110,
+        "maximum_relative_kernel_drift": 0.0484,
+        "median_initial_relative_kernel_error": 0.0546
+      },
+      "4096": {
+        "final_frozen_trajectory_discrepancy": 0.0225,
+        "gap_retained_at_saved_checkpoints": 110,
+        "gap_retained_denominator": 110,
+        "maximum_relative_kernel_drift": 0.00333,
+        "median_initial_relative_kernel_error": 0.0156
+      },
+      "provenance": {
+        "description": "Frozen aggregates copied from theorem_audit_results.tex, table completed_width_results",
+        "pde_systems": 11,
+        "runs_per_width": 110
+      }
+    }
+  }
+}

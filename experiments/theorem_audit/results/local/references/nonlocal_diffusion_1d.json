@@ -1,0 +1,1234 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/nonlocal_diffusion_1d.npz",
+      "sha256": "0ae7a29b25d44b704f522334e711066a34aeb3a3c9e9bcedfa70cfd7d39d4821"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.19918540003709495,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "atoms": [
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -1.0
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.991565168420931
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.9558239495713978
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.8926024664975557
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.8037049589725231
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.6916870430603532
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.5597708310739475
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.5
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.41175116146284263
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.2518862256915055
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -0.08477501304173529
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.0
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.08477501304173529
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.2518862256915055
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.41175116146284263
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.5
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.5597708310739475
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.6916870430603532
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.8037049589725231
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.8926024664975557
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.9558239495713978
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          0.991565168420931
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          1.0
+        ]
+      }
+    ],
+    "certificate_type": "signed_measure_coefficient_rank",
+    "constraint_names": [
+      "nonlocal_diffusion_0",
+      "nonlocal_diffusion_1",
+      "nonlocal_diffusion_2",
+      "dirichlet_left",
+      "dirichlet_right"
+    ],
+    "full_row_rank": true,
+    "independence_witness": "Each residual measure has a nonzero Dirac atom at its own interior anchor, distinct from all quadrature and endpoint atoms; the two boundary Dirac measures are also distinct.",
+    "matrix": [
+      [
+        0.0,
+        -0.007697192354162569,
+        -0.018943114872282847,
+        -0.032418844859445864,
+        -0.04846136986153257,
+        -0.06574394701481621,
+        -0.08062210836478452,
+        0.607821325861992,
+        -0.08792699179513297,
+        -0.08385791264564302,
+        -0.0691730363821399,
+        0.0,
+        -0.04927964359069187,
+        -0.03061772065536064,
+        -0.01693702722939181,
+        0.0,
+        -0.008590780427825913,
+        -0.004133065708766038,
+        -0.0019463331121264626,
+        -0.0009124062114234852,
+        -0.0004140140932556527,
+        -0.00014581668320970157,
+        0.0
+      ],
+      [
+        0.0,
+        -0.00174669476469833,
+        -0.004617219273748708,
+        -0.008966854558372976,
+        -0.016012298206980413,
+        -0.027177611291877048,
+        -0.04339009750922542,
+        0.0,
+        -0.06362487489107364,
+        -0.08354215870477004,
+        -0.09626079405931919,
+        0.6906772065201315,
+        -0.09626079405931919,
+        -0.08354215870477004,
+        -0.06362487489107364,
+        0.0,
+        -0.04339009750922542,
+        -0.027177611291877048,
+        -0.016012298206980413,
+        -0.008966854558372976,
+        -0.004617219273748708,
+        -0.00174669476469833,
+        0.0
+      ],
+      [
+        0.0,
+        -0.00014581668320970157,
+        -0.0004140140932556527,
+        -0.0009124062114234852,
+        -0.0019463331121264626,
+        -0.004133065708766038,
+        -0.008590780427825913,
+        0.0,
+        -0.01693702722939181,
+        -0.03061772065536064,
+        -0.04927964359069187,
+        0.0,
+        -0.0691730363821399,
+        -0.08385791264564302,
+        -0.08792699179513297,
+        0.607821325861992,
+        -0.08062210836478452,
+        -0.06574394701481621,
+        -0.04846136986153257,
+        -0.032418844859445864,
+        -0.018943114872282847,
+        -0.007697192354162569,
+        0.0
+      ],
+      [
+        0.7071067811865475,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7071067811865475
+      ]
+    ],
+    "num_columns": 23,
+    "num_rows": 5,
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "nonlocal_measure",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "nonlocal_diffusion_1d",
+    "rank": 5,
+    "smallest_singular_value": 0.6247060688288096,
+    "trial_space": "C([-1,1])"
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper signed-measure nonlocal positivity theorem plus measure-independence certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "nonlocal_measure",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "inconclusive"
+  },
+  "problem": {
+    "constraint_count": 5,
+    "constraint_group_sizes": {
+      "boundary": 2,
+      "nonlocal_residual": 3
+    },
+    "constraints": [
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_diffusion_0",
+        "physical_point": null,
+        "target": -0.14681354718440584,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0527774183168488,
+            "output": 0,
+            "point": [
+              -0.5
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.013331928233040264,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.03281043741240751,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05615108641925334,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08393755480456153,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.1138718565197779,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.13964158790113054,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.15229401714586208,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.14524616531892634,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.11981121352767672,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08535484647796429,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05303144778703568,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.02933579169048415,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.014879668177662776,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.007158679798603449,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0033711478386566854,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.001580333915326907,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0007170934445683496,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0002525619039103787,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_diffusion_1",
+        "physical_point": null,
+        "target": 0.06948212027545017,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.19628801332261,
+            "output": 0,
+            "point": [
+              0.0
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.003025364077772072,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.007997258371819034,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.01553104767918258,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.027734114040434105,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.04707300358588867,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.07515385343134622,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.11020151593655286,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.14469926345064424,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.16672858608766516,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.16672858608766516,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.14469926345064424,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.11020151593655286,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.07515385343134622,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.04707300358588867,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.027734114040434105,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.01553104767918258,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.007997258371819034,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.003025364077772072,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "nonlocal_residual",
+        "name": "nonlocal_diffusion_2",
+        "physical_point": null,
+        "target": 0.1604374383073382,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0527774183168488,
+            "output": 0,
+            "point": [
+              0.5
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0002525619039103787,
+            "output": 0,
+            "point": [
+              -0.991565168420931
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0007170934445683496,
+            "output": 0,
+            "point": [
+              -0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.001580333915326907,
+            "output": 0,
+            "point": [
+              -0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.0033711478386566854,
+            "output": 0,
+            "point": [
+              -0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.007158679798603449,
+            "output": 0,
+            "point": [
+              -0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.014879668177662776,
+            "output": 0,
+            "point": [
+              -0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.02933579169048415,
+            "output": 0,
+            "point": [
+              -0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05303144778703568,
+            "output": 0,
+            "point": [
+              -0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08535484647796429,
+            "output": 0,
+            "point": [
+              -0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.11981121352767672,
+            "output": 0,
+            "point": [
+              0.08477501304173529
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.14524616531892634,
+            "output": 0,
+            "point": [
+              0.2518862256915055
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.15229401714586208,
+            "output": 0,
+            "point": [
+              0.41175116146284263
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.13964158790113054,
+            "output": 0,
+            "point": [
+              0.5597708310739475
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.1138718565197779,
+            "output": 0,
+            "point": [
+              0.6916870430603532
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.08393755480456153,
+            "output": 0,
+            "point": [
+              0.8037049589725231
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.05615108641925334,
+            "output": 0,
+            "point": [
+              0.8926024664975557
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.03281043741240751,
+            "output": 0,
+            "point": [
+              0.9558239495713978
+            ]
+          },
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": -0.013331928233040264,
+            "output": 0,
+            "point": [
+              0.991565168420931
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "dirichlet_left",
+        "physical_point": [
+          -1.0
+        ],
+        "target": -0.6697132745734489,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "dirichlet_right",
+        "physical_point": [
+          1.0
+        ],
+        "target": 0.984816206430731,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "Value-only nonlocal diffusion with an 18-node Gaussian-kernel quadrature and two Dirichlet constraints.",
+    "evaluation_point_count": 161,
+    "family": "nonlocal_integral",
+    "independence_witness": "Each residual measure has a nonzero Dirac atom at its own interior anchor, distinct from all quadrature and endpoint atoms; the two boundary Dirac measures are also distinct.",
+    "input_dim": 1,
+    "name": "nonlocal_diffusion_1d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "nonlocal_measure",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": "C([-1,1])"
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 4.999177387119343e-07,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.34882722930313154,
+      "lambda_min": 9.90734631805421e-06,
+      "level_difference_operator_norm": 1.134225168089084e-05,
+      "lower_bound": -1.436000298197476e-06,
+      "positivity_threshold": 3.4882722930313155e-09,
+      "relative_lower_bound": -4.116651962824808e-06,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 3.4410287895842486e-10,
+      "status": "inconclusive"
+    },
+    "full_replicate_lambda_min": [
+      9.907030483315692e-06,
+      9.907124034465323e-06,
+      9.906863568988553e-06,
+      9.908365471621468e-06
+    ],
+    "full_spectrum": {
+      "condition_number": 35208.946786029046,
+      "eigenvalues": [
+        9.90734631805421e-06,
+        0.0003390260223497833,
+        0.0010395741581918092,
+        0.34183149533045604,
+        0.34882722930313154
+      ],
+      "lambda_max": 0.34882722930313154,
+      "lambda_min": 9.90734631805421e-06,
+      "numerical_rank": 5,
+      "rank_tolerance": 3.4882722930313155e-09
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 1.0701320577258813e-06,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.17194931535532426,
+      "lambda_min": 5.785643714372726e-07,
+      "level_difference_operator_norm": 2.471283318631011e-05,
+      "lower_bound": -2.4134634646953764e-05,
+      "positivity_threshold": 1.7194931535532426e-09,
+      "relative_lower_bound": -0.00014035900403023302,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 1.1496922719266862e-10,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      5.788039788927178e-07,
+      5.782522854919157e-07,
+      5.785732152102291e-07,
+      5.786254381610125e-07
+    ],
+    "out_spectrum": {
+      "condition_number": 297199.9726290903,
+      "eigenvalues": [
+        5.785643714372726e-07,
+        3.9242791070505266e-05,
+        0.00017193846721027576,
+        0.1688562479942013,
+        0.17194931535532426
+      ],
+      "lambda_max": 0.17194931535532426,
+      "lambda_min": 5.785643714372726e-07,
+      "numerical_rank": 5,
+      "rank_tolerance": 1.7194931535532426e-09
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:33.716535+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

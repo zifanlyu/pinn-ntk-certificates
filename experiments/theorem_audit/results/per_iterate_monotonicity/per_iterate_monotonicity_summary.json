@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "config": {
+    "schema_version": 1,
+    "output_dir": "experiments/theorem_audit/results/per_iterate_monotonicity",
+    "gamma": 1.0,
+    "collocation_point": 0.35,
+    "widths": [
+      256,
+      1024
+    ],
+    "epsilons": [
+      1.0,
+      0.1,
+      0.01
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "steps": 3000,
+    "learning_rate_factor": 0.2,
+    "target": [
+      0.6,
+      -0.6
+    ],
+    "hidden_parameter_low": -1.0,
+    "hidden_parameter_high": 1.0,
+    "precision_floor_relative": 1e-26,
+    "increase_tolerance_relative": 1e-12,
+    "threads": 1,
+    "device": "cpu"
+  },
+  "config_path": "experiments\\theorem_audit\\configs\\per_iterate_monotonicity.json",
+  "config_sha256": "5ec1897c9d9b119c7c289f118e5d9ee96984ac0a162eea1930659789b7cc1981",
+  "total_violations": 0,
+  "total_scored_iterates": 65860,
+  "elapsed_seconds": 3.9118597000051523,
+  "environment": {
+    "numpy": "2.5.2",
+    "torch": "2.13.0+cpu",
+    "matplotlib": "3.11.1",
+    "git": {
+      "commit": "cd0b437ac7507e345e562294e46e9e1da9783d00",
+      "dirty": true,
+      "status_entry_count": 54
+    }
+  },
+  "cells": [
+    {
+      "width": 256,
+      "epsilon": 1.0,
+      "violations": 0,
+      "scored_iterates": 2845,
+      "possible_iterates": 15000,
+      "reached_precision_floor": true,
+      "worst_ratio_first_seed": null,
+      "predicted_ratio_first_seed": null
+    },
+    {
+      "width": 256,
+      "epsilon": 0.1,
+      "violations": 0,
+      "scored_iterates": 15000,
+      "possible_iterates": 15000,
+      "reached_precision_floor": false,
+      "worst_ratio_first_seed": 0.9983586994670673,
+      "predicted_ratio_first_seed": 0.9983706346265802
+    },
+    {
+      "width": 256,
+      "epsilon": 0.01,
+      "violations": 0,
+      "scored_iterates": 15000,
+      "possible_iterates": 15000,
+      "reached_precision_floor": false,
+      "worst_ratio_first_seed": 0.9999827693072317,
+      "predicted_ratio_first_seed": 0.9999827796790498
+    },
+    {
+      "width": 1024,
+      "epsilon": 1.0,
+      "violations": 0,
+      "scored_iterates": 3015,
+      "possible_iterates": 15000,
+      "reached_precision_floor": true,
+      "worst_ratio_first_seed": null,
+      "predicted_ratio_first_seed": null
+    },
+    {
+      "width": 1024,
+      "epsilon": 0.1,
+      "violations": 0,
+      "scored_iterates": 15000,
+      "possible_iterates": 15000,
+      "reached_precision_floor": false,
+      "worst_ratio_first_seed": 0.9983873491972495,
+      "predicted_ratio_first_seed": 0.9983885070276766
+    },
+    {
+      "width": 1024,
+      "epsilon": 0.01,
+      "violations": 0,
+      "scored_iterates": 15000,
+      "possible_iterates": 15000,
+      "reached_precision_floor": false,
+      "worst_ratio_first_seed": 0.999983441637782,
+      "predicted_ratio_first_seed": 0.9999834388476878
+    }
+  ]
+}

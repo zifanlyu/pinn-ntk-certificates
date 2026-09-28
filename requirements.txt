@@ -1,0 +1,8 @@
+# Runtime dependencies for the PINN/NTK experiments.
+# Python 3.11 or newer is required.
+# These direct dependencies match the versions resolved in uv.lock.
+matplotlib==3.11.1
+numpy==2.4.6; python_version < "3.12"
+numpy==2.5.2; python_version >= "3.12"
+pandas==3.0.5
+torch==2.13.0

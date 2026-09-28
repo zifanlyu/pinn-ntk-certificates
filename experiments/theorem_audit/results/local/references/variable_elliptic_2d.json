@@ -1,0 +1,1493 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/variable_elliptic_2d.npz",
+      "sha256": "4612d651c317e5a64ae8504793db719a2246cdc682fff353bb859e5394d2f8a5"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.1880966000026092,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "certificate_type": "local_operator_coefficient_rank",
+    "independence_witness": null,
+    "locations": [
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.2481944801964782,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          -1.0,
+          -0.64
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.43197280006963396
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.2328149077056708,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          -1.0,
+          0.23
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.42332349480037124
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "elliptic_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.15652475842498526,
+            -0.08944271909999159,
+            -0.7562381899904288,
+            -0.13416407864998736,
+            -0.7562381899904288
+          ]
+        ],
+        "num_columns": 5,
+        "num_rows": 1,
+        "physical_point": [
+          -0.71,
+          -0.48
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.0928368588220292
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.26672067786356574,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          -0.57,
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4428768677634902
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "elliptic_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.15652475842498526,
+            -0.08944271909999159,
+            -0.8666999480789186,
+            -0.13416407864998736,
+            -0.8666999480789186
+          ]
+        ],
+        "num_columns": 5,
+        "num_rows": 1,
+        "physical_point": [
+          -0.38,
+          0.26
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.2461290462869405
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_6"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.24069914831590075,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          -0.24,
+          1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.42771027577087734
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "elliptic_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.15652475842498526,
+            -0.08944271909999159,
+            -0.8872717734719164,
+            -0.13416407864998736,
+            -0.8872717734719164
+          ]
+        ],
+        "num_columns": 5,
+        "num_rows": 1,
+        "physical_point": [
+          0.06,
+          -0.17
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.274755819755297
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_5"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.28793388129916214,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          0.18,
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4559670163509637
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "elliptic_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.15652475842498526,
+            -0.08944271909999159,
+            -1.0057833762794053,
+            -0.13416407864998736,
+            -1.0057833762794053
+          ]
+        ],
+        "num_columns": 5,
+        "num_rows": 1,
+        "physical_point": [
+          0.41,
+          0.63
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.4400348606891433
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_7"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.2670035205760403,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          0.69,
+          1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.44304726610148487
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "elliptic_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.15652475842498526,
+            -0.08944271909999159,
+            -0.9700062886394087,
+            -0.13416407864998736,
+            -0.9700062886394087
+          ]
+        ],
+        "num_columns": 5,
+        "num_rows": 1,
+        "physical_point": [
+          0.77,
+          -0.31
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.3900807170808462
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.29680807140305326,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          1.0,
+          -0.19
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4616221736983612
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "robin_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.28072139213105934,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 1,
+        "physical_point": [
+          1.0,
+          0.72
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4514471176117973
+      }
+    ],
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "variable_elliptic_2d",
+    "trial_space": null
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper pointwise DNTK positivity theorem plus local operator-rank certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "positive"
+  },
+  "problem": {
+    "constraint_count": 13,
+    "constraint_group_sizes": {
+      "interior": 5,
+      "robin_boundary": 8
+    },
+    "constraints": [
+      {
+        "group": "interior",
+        "name": "elliptic_0",
+        "physical_point": [
+          -0.71,
+          -0.48
+        ],
+        "target": -0.654482134753709,
+        "terms": [
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "coefficient": -1.6909999999999998,
+            "output": 0,
+            "point": [
+              -0.71,
+              -0.48
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "coefficient": -1.6909999999999998,
+            "output": 0,
+            "point": [
+              -0.71,
+              -0.48
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -0.3,
+            "output": 0,
+            "point": [
+              -0.71,
+              -0.48
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -0.2,
+            "output": 0,
+            "point": [
+              -0.71,
+              -0.48
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.35,
+            "output": 0,
+            "point": [
+              -0.71,
+              -0.48
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "elliptic_1",
+        "physical_point": [
+          -0.38,
+          0.26
+        ],
+        "target": -0.22577432561227953,
+        "terms": [
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "coefficient": -1.9380000000000002,
+            "output": 0,
+            "point": [
+              -0.38,
+              0.26
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "coefficient": -1.9380000000000002,
+            "output": 0,
+            "point": [
+              -0.38,
+              0.26
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -0.3,
+            "output": 0,
+            "point": [
+              -0.38,
+              0.26
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -0.2,
+            "output": 0,
+            "point": [
+              -0.38,
+              0.26
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.35,
+            "output": 0,
+            "point": [
+              -0.38,
+              0.26
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "elliptic_2",
+        "physical_point": [
+          0.06,
+          -0.17
+        ],
+        "target": 1.0575581288270328,
+        "terms": [
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "coefficient": -1.9839999999999998,
+            "output": 0,
+            "point": [
+              0.06,
+              -0.17
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "coefficient": -1.9839999999999998,
+            "output": 0,
+            "point": [
+              0.06,
+              -0.17
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -0.3,
+            "output": 0,
+            "point": [
+              0.06,
+              -0.17
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -0.2,
+            "output": 0,
+            "point": [
+              0.06,
+              -0.17
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.35,
+            "output": 0,
+            "point": [
+              0.06,
+              -0.17
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "elliptic_3",
+        "physical_point": [
+          0.41,
+          0.63
+        ],
+        "target": 2.3256623721615015,
+        "terms": [
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "coefficient": -2.2489999999999997,
+            "output": 0,
+            "point": [
+              0.41,
+              0.63
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "coefficient": -2.2489999999999997,
+            "output": 0,
+            "point": [
+              0.41,
+              0.63
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -0.3,
+            "output": 0,
+            "point": [
+              0.41,
+              0.63
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -0.2,
+            "output": 0,
+            "point": [
+              0.41,
+              0.63
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.35,
+            "output": 0,
+            "point": [
+              0.41,
+              0.63
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "elliptic_4",
+        "physical_point": [
+          0.77,
+          -0.31
+        ],
+        "target": 2.7817052775458264,
+        "terms": [
+          {
+            "alpha": [
+              2,
+              0
+            ],
+            "coefficient": -2.169,
+            "output": 0,
+            "point": [
+              0.77,
+              -0.31
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              2
+            ],
+            "coefficient": -2.169,
+            "output": 0,
+            "point": [
+              0.77,
+              -0.31
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -0.3,
+            "output": 0,
+            "point": [
+              0.77,
+              -0.31
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -0.2,
+            "output": 0,
+            "point": [
+              0.77,
+              -0.31
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.35,
+            "output": 0,
+            "point": [
+              0.77,
+              -0.31
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_0",
+        "physical_point": [
+          -1.0,
+          -0.64
+        ],
+        "target": -0.5215382557131499,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.7020000000000001,
+            "output": 0,
+            "point": [
+              -1.0,
+              -0.64
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -1.0,
+              -0.64
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_1",
+        "physical_point": [
+          -1.0,
+          0.23
+        ],
+        "target": -1.031324775973797,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.6585000000000001,
+            "output": 0,
+            "point": [
+              -1.0,
+              0.23
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -1.0,
+              0.23
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_2",
+        "physical_point": [
+          1.0,
+          -0.19
+        ],
+        "target": 1.0179982121664046,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.8394999999999999,
+            "output": 0,
+            "point": [
+              1.0,
+              -0.19
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0,
+              -0.19
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_3",
+        "physical_point": [
+          1.0,
+          0.72
+        ],
+        "target": 1.0220135942191513,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.7939999999999999,
+            "output": 0,
+            "point": [
+              1.0,
+              0.72
+            ]
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0,
+              0.72
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_4",
+        "physical_point": [
+          -0.57,
+          -1.0
+        ],
+        "target": 0.2561101987837057,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.7544000000000001,
+            "output": 0,
+            "point": [
+              -0.57,
+              -1.0
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -0.57,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_5",
+        "physical_point": [
+          0.18,
+          -1.0
+        ],
+        "target": -0.361443993492322,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.8144,
+            "output": 0,
+            "point": [
+              0.18,
+              -1.0
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              0.18,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_6",
+        "physical_point": [
+          -0.24,
+          1.0
+        ],
+        "target": -0.06396368291289675,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.6808,
+            "output": 0,
+            "point": [
+              -0.24,
+              1.0
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.24,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "robin_boundary",
+        "name": "robin_7",
+        "physical_point": [
+          0.69,
+          1.0
+        ],
+        "target": -0.1666537204131125,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.7552,
+            "output": 0,
+            "point": [
+              0.69,
+              1.0
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.69,
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "Variable-coefficient 2D elliptic equation -div(a grad u)+0.35u=f with Robin data.",
+    "evaluation_point_count": 1023,
+    "family": "elliptic",
+    "independence_witness": null,
+    "input_dim": 2,
+    "name": "variable_elliptic_2d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": null
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 0.0005892164860399327,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 1.579361229928519,
+      "lambda_min": 0.005197690590154816,
+      "level_difference_operator_norm": 0.0014548847153982888,
+      "lower_bound": 0.003734434006774643,
+      "positivity_threshold": 1.579361229928519e-08,
+      "relative_lower_bound": 0.0023645217674133114,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 2.6310081652686146e-06,
+      "status": "positive"
+    },
+    "full_replicate_lambda_min": [
+      0.005191483359750624,
+      0.005201499896891366,
+      0.005195165375628937,
+      0.00520255372824519
+    ],
+    "full_spectrum": {
+      "condition_number": 303.8582621520526,
+      "eigenvalues": [
+        0.005197690590154816,
+        0.007520108487941506,
+        0.012192644489790254,
+        0.014284243379589506,
+        0.044992746472395526,
+        0.09379370229976396,
+        0.19067725975687078,
+        0.22132471353026756,
+        0.24620295728882663,
+        0.4524323694954966,
+        1.0105923884525458,
+        1.2467163571414595,
+        1.579361229928519
+      ],
+      "lambda_max": 1.579361229928519,
+      "lambda_min": 0.005197690590154816,
+      "numerical_rank": 13,
+      "rank_tolerance": 1.579361229928519e-08
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 0.00039171005562645557,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.6601611024956845,
+      "lambda_min": 0.0003913296474919843,
+      "level_difference_operator_norm": 0.0007099111422543377,
+      "lower_bound": -0.00031998745027121873,
+      "positivity_threshold": 6.601611024956845e-09,
+      "relative_lower_bound": -0.000484711154688655,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 4.418464829872164e-07,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      0.0003925947774264582,
+      0.0003905717595125182,
+      0.00039095007417879797,
+      0.00039117506068586563
+    ],
+    "out_spectrum": {
+      "condition_number": 1686.9693025474303,
+      "eigenvalues": [
+        0.0003913296474919843,
+        0.0008720399667593814,
+        0.001526485704183751,
+        0.001680270792087997,
+        0.005625885894192683,
+        0.01568454066734839,
+        0.028756141154559295,
+        0.03269286557993406,
+        0.04472572510509195,
+        0.09133927577934733,
+        0.32181314275671913,
+        0.4223804026902535,
+        0.6601611024956845
+      ],
+      "lambda_max": 0.6601611024956845,
+      "lambda_min": 0.0003913296474919843,
+      "numerical_rank": 13,
+      "rank_tolerance": 6.601611024956845e-09
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:31.930110+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

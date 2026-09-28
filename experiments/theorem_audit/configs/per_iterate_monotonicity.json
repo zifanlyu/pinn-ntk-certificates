@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "output_dir": "experiments/theorem_audit/results/per_iterate_monotonicity",
+  "gamma": 1.0,
+  "collocation_point": 0.35,
+  "widths": [256, 1024],
+  "epsilons": [1.0, 0.1, 0.01],
+  "seeds": [0, 1, 2, 3, 4],
+  "steps": 3000,
+  "learning_rate_factor": 0.2,
+  "target": [0.6, -0.6],
+  "hidden_parameter_low": -1.0,
+  "hidden_parameter_high": 1.0,
+  "precision_floor_relative": 1e-26,
+  "increase_tolerance_relative": 1e-12,
+  "threads": 1,
+  "device": "cpu"
+}

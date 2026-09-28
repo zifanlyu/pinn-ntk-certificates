@@ -1,0 +1,1280 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/transport_1d.npz",
+      "sha256": "25cb1ea72a7c4f6bdd1b5563d0cdc2581041f8810d09b121739e9fe167032f93"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.16844290005974472,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "certificate_type": "local_operator_coefficient_rank",
+    "independence_witness": null,
+    "locations": [
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "initial_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.0,
+          -0.78
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "initial_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.0,
+          -0.31
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "initial_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.0,
+          0.12
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "initial_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.0,
+          0.49
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "initial_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.0,
+          0.87
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.4472135954999579
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "transport_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.10206207261596577,
+            0.23662070915285505,
+            0.4082482904638631
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.11,
+          -0.66
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.48277602812622467
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "inflow_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.5
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.16,
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "transport_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.10206207261596577,
+            0.2769556402506847,
+            0.4082482904638631
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.22,
+          0.09
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5037735205427137
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "transport_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.10206207261596577,
+            0.26568798743388206,
+            0.4082482904638631
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.37,
+          -0.24
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.49766800178432213
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "inflow_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.5
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.43,
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "transport_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.10206207261596577,
+            0.3184336665618132,
+            0.4082482904638631
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.53,
+          0.73
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5277152009686032
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "inflow_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.5
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.71,
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "transport_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.10206207261596577,
+            0.2710768648680051,
+            0.4082482904638631
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.76,
+          -0.39
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5005656800061308
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "transport_5"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.10206207261596577,
+            0.3154942788704734,
+            0.4082482904638631
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.92,
+          0.41
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5259467400158817
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "inflow_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.5
+          ]
+        ],
+        "num_columns": 1,
+        "num_rows": 1,
+        "physical_point": [
+          0.93,
+          -1.0
+        ],
+        "rank": 1,
+        "smallest_singular_value": 0.5
+      }
+    ],
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "transport_1d",
+    "trial_space": null
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper pointwise DNTK positivity theorem plus local operator-rank certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "inconclusive"
+  },
+  "problem": {
+    "constraint_count": 15,
+    "constraint_group_sizes": {
+      "inflow": 4,
+      "initial": 5,
+      "interior": 6
+    },
+    "constraints": [
+      {
+        "group": "interior",
+        "name": "transport_0",
+        "physical_point": [
+          0.11,
+          -0.66
+        ],
+        "target": -0.18299914489577335,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.11,
+              -0.66
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 0.5796,
+            "output": 0,
+            "point": [
+              0.11,
+              -0.66
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.25,
+            "output": 0,
+            "point": [
+              0.11,
+              -0.66
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "transport_1",
+        "physical_point": [
+          0.22,
+          0.09
+        ],
+        "target": -0.12284343337589039,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.22,
+              0.09
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 0.6784,
+            "output": 0,
+            "point": [
+              0.22,
+              0.09
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.25,
+            "output": 0,
+            "point": [
+              0.22,
+              0.09
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "transport_2",
+        "physical_point": [
+          0.37,
+          -0.24
+        ],
+        "target": -0.17978444165574028,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.37,
+              -0.24
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 0.6507999999999999,
+            "output": 0,
+            "point": [
+              0.37,
+              -0.24
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.25,
+            "output": 0,
+            "point": [
+              0.37,
+              -0.24
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "transport_3",
+        "physical_point": [
+          0.53,
+          0.73
+        ],
+        "target": -0.13575001540689838,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.53,
+              0.73
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 0.78,
+            "output": 0,
+            "point": [
+              0.53,
+              0.73
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.25,
+            "output": 0,
+            "point": [
+              0.53,
+              0.73
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "transport_4",
+        "physical_point": [
+          0.76,
+          -0.39
+        ],
+        "target": -0.22909833539426983,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.76,
+              -0.39
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 0.664,
+            "output": 0,
+            "point": [
+              0.76,
+              -0.39
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.25,
+            "output": 0,
+            "point": [
+              0.76,
+              -0.39
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "transport_5",
+        "physical_point": [
+          0.92,
+          0.41
+        ],
+        "target": -0.26006802879448626,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.92,
+              0.41
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 0.7728,
+            "output": 0,
+            "point": [
+              0.92,
+              0.41
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 0.25,
+            "output": 0,
+            "point": [
+              0.92,
+              0.41
+            ]
+          }
+        ]
+      },
+      {
+        "group": "initial",
+        "name": "initial_0",
+        "physical_point": [
+          0.0,
+          -0.78
+        ],
+        "target": -0.26022080212947896,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.0,
+              -0.78
+            ]
+          }
+        ]
+      },
+      {
+        "group": "initial",
+        "name": "initial_1",
+        "physical_point": [
+          0.0,
+          -0.31
+        ],
+        "target": 0.21812253855322297,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.0,
+              -0.31
+            ]
+          }
+        ]
+      },
+      {
+        "group": "initial",
+        "name": "initial_2",
+        "physical_point": [
+          0.0,
+          0.12
+        ],
+        "target": 0.6002121803404799,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.0,
+              0.12
+            ]
+          }
+        ]
+      },
+      {
+        "group": "initial",
+        "name": "initial_3",
+        "physical_point": [
+          0.0,
+          0.49
+        ],
+        "target": 0.8396781595741935,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.0,
+              0.49
+            ]
+          }
+        ]
+      },
+      {
+        "group": "initial",
+        "name": "initial_4",
+        "physical_point": [
+          0.0,
+          0.87
+        ],
+        "target": 0.9738089262407087,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.0,
+              0.87
+            ]
+          }
+        ]
+      },
+      {
+        "group": "inflow",
+        "name": "inflow_0",
+        "physical_point": [
+          0.16,
+          -1.0
+        ],
+        "target": -0.5746643321150758,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.16,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "inflow",
+        "name": "inflow_1",
+        "physical_point": [
+          0.43,
+          -1.0
+        ],
+        "target": -0.7110283279083122,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.43,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "inflow",
+        "name": "inflow_2",
+        "physical_point": [
+          0.71,
+          -1.0
+        ],
+        "target": -0.8149440476920531,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.71,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "inflow",
+        "name": "inflow_3",
+        "physical_point": [
+          0.93,
+          -1.0
+        ],
+        "target": -0.8660260940108527,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.93,
+              -1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "Variable-speed 1D transport-reaction equation with initial and inflow data.",
+    "evaluation_point_count": 1023,
+    "family": "hyperbolic",
+    "independence_witness": null,
+    "input_dim": 2,
+    "name": "transport_1d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": null
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 6.158779998088887e-05,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.964217795225846,
+      "lambda_min": 6.245958670830964e-07,
+      "level_difference_operator_norm": 9.243922621984929e-05,
+      "lower_bound": -9.181577660804454e-05,
+      "positivity_threshold": 9.64217795225846e-09,
+      "relative_lower_bound": -9.522306792371405e-05,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 3.6023107427692657e-10,
+      "status": "inconclusive"
+    },
+    "full_replicate_lambda_min": [
+      6.246719295997537e-07,
+      6.235994528013032e-07,
+      6.247793227430405e-07,
+      6.253204030787558e-07
+    ],
+    "full_spectrum": {
+      "condition_number": 1543746.6785183933,
+      "eigenvalues": [
+        6.245958670830964e-07,
+        1.3078820287806847e-06,
+        1.3118507202985946e-05,
+        4.645995914050469e-05,
+        0.00019212231791506892,
+        0.0002941670043833069,
+        0.0011101800702150554,
+        0.002724870807011143,
+        0.007135504481235259,
+        0.008900736324273418,
+        0.01567143385670921,
+        0.05571311702126736,
+        0.2532133910911459,
+        0.654901031799688,
+        0.964217795225846
+      ],
+      "lambda_max": 0.964217795225846,
+      "lambda_min": 6.245958670830964e-07,
+      "numerical_rank": 15,
+      "rank_tolerance": 9.64217795225846e-09
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 7.957259054801402e-05,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.48498347869280933,
+      "lambda_min": 2.9062661621714932e-08,
+      "level_difference_operator_norm": 9.91217054572273e-05,
+      "lower_bound": -9.909281209664765e-05,
+      "positivity_threshold": 4.849834786928094e-09,
+      "relative_lower_bound": -0.00020432203662635172,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 5.320585860049732e-11,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      2.91482007696342e-08,
+      2.909029838257612e-08,
+      2.9098533682509636e-08,
+      2.8905759610761683e-08
+    ],
+    "out_spectrum": {
+      "condition_number": 16687510.765718758,
+      "eigenvalues": [
+        2.9062661621714932e-08,
+        7.867418437695837e-08,
+        7.54425091019785e-07,
+        3.4365718712737826e-06,
+        1.58618629064205e-05,
+        2.316027500443472e-05,
+        0.00012469381390023445,
+        0.000300554184300032,
+        0.0010733453790471783,
+        0.0013160401739236618,
+        0.0024521950789703805,
+        0.011702338248918302,
+        0.12643383806463093,
+        0.3122433222920126,
+        0.48498347869280933
+      ],
+      "lambda_max": 0.48498347869280933,
+      "lambda_min": 2.9062661621714932e-08,
+      "numerical_rank": 15,
+      "rank_tolerance": 4.849834786928094e-09
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:32.281328+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

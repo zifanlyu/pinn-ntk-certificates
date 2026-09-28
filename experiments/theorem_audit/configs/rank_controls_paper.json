@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "output_dir": "experiments/theorem_audit/results/rank_controls_paper_compatible",
+  "families": ["pointwise_poisson", "vector_stokes", "weak_poisson", "nonlocal_diffusion", "weak_boundary", "nonlocal_boundary"],
+  "epsilons": [null, 1.0, 0.1, 0.01, 0.0],
+  "target_modes": ["manufactured", "contrast"],
+  "include_incompatible_targets": false,
+  "widths": [16, 256, 4096, 16384],
+  "seeds": [0, 1, 2, 3, 4],
+  "steps": 3000,
+  "checkpoint_every": 50,
+  "learning_rate_factor": 0.2,
+  "contrast_amplitude": 0.5,
+  "relative_rank_tolerance": 1e-12,
+  "threads": 1,
+  "device": "cpu"
+}

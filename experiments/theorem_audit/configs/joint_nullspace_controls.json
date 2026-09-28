@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "cases": ["colocated_vector", "weak_boundary", "nonlocal_boundary"],
+  "epsilons": [0.0, 0.1, 0.001, 0.00001],
+  "widths": [32, 128],
+  "seeds": [0, 1, 2],
+  "relative_rank_tolerances": [0.000001, 0.0000000001, 0.000000000001],
+  "steps": 5000,
+  "checkpoint_steps": [0, 1, 2, 3, 5, 10, 20, 35, 50, 75, 100, 150, 250, 500, 1000, 2000, 3000, 4000, 5000],
+  "learning_rate_factor": 0.2,
+  "incompatibility_amplitude": 0.25,
+  "threads": 1
+}

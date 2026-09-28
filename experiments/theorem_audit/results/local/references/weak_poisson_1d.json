@@ -1,0 +1,1265 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/weak_poisson_1d.npz",
+      "sha256": "c8061d8043864b9f80a98dd569203e1efcd876aaae7da1601b87377d91073698"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.23412919999100268,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "atoms": [
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          -1.0
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.9894009349916499
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.9445750230732326
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.8656312023878318
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.755404408355003
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.6178762444026438
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.45801677765722737
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.2816035507792589
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          -0.09501250983763744
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.09501250983763744
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.2816035507792589
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.45801677765722737
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.6178762444026438
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.755404408355003
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.8656312023878318
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.9445750230732326
+        ]
+      },
+      {
+        "alpha": [
+          1
+        ],
+        "output": 0,
+        "point": [
+          0.9894009349916499
+        ]
+      },
+      {
+        "alpha": [
+          0
+        ],
+        "output": 0,
+        "point": [
+          1.0
+        ]
+      }
+    ],
+    "certificate_type": "finite_jet_functional_coefficient_rank",
+    "constraint_names": [
+      "weak_legendre_test_1",
+      "weak_legendre_test_2",
+      "weak_legendre_test_3",
+      "weak_legendre_test_4",
+      "dirichlet_left",
+      "dirichlet_right"
+    ],
+    "full_row_rank": true,
+    "independence_witness": "The four normalized Legendre derivatives P_1 through P_4 are linearly independent and no nonzero combination of degree at most four vanishes at all 16 Gauss-Legendre nodes; the two endpoint value atoms are distinct.",
+    "matrix": [
+      [
+        0.0,
+        -0.01645118262392968,
+        -0.03600941215450298,
+        -0.05044245059272572,
+        -0.057651970929387675,
+        -0.05660269124621607,
+        -0.047444487670101704,
+        -0.03148927458008606,
+        -0.011022812838454465,
+        0.011022812838454465,
+        0.03148927458008606,
+        0.047444487670101704,
+        0.05660269124621607,
+        0.057651970929387675,
+        0.05044245059272572,
+        0.03600941215450298,
+        0.01645118262392968,
+        0.0
+      ],
+      [
+        0.0,
+        0.020786965644927605,
+        0.04125917035488619,
+        0.04694135076060086,
+        0.03507135677360557,
+        0.008592804073112541,
+        -0.02478430210174101,
+        -0.05500851399298803,
+        -0.07285883151240409,
+        -0.07285883151240409,
+        -0.05500851399298803,
+        -0.02478430210174101,
+        0.008592804073112541,
+        0.03507135677360557,
+        0.04694135076060086,
+        0.04125917035488619,
+        0.020786965644927605,
+        0.0
+      ],
+      [
+        0.0,
+        -0.023804903069746714,
+        -0.04018438290694737,
+        -0.028763049941609907,
+        0.006464879516160697,
+        0.04717129926191187,
+        0.0707008100722895,
+        0.06261496872102316,
+        0.02487643813503721,
+        -0.02487643813503721,
+        -0.06261496872102316,
+        -0.0707008100722895,
+        -0.04717129926191187,
+        -0.006464879516160697,
+        0.028763049941609907,
+        0.04018438290694737,
+        0.023804903069746714,
+        0.0
+      ],
+      [
+        0.0,
+        0.02581924785755929,
+        0.033802673805595554,
+        0.002171998016970412,
+        -0.04498046233678769,
+        -0.06648119316267553,
+        -0.039317628240797556,
+        0.020362648471310103,
+        0.06862271558882531,
+        0.06862271558882531,
+        0.020362648471310103,
+        -0.039317628240797556,
+        -0.06648119316267553,
+        -0.04498046233678769,
+        0.002171998016970412,
+        0.033802673805595554,
+        0.02581924785755929,
+        0.0
+      ],
+      [
+        0.7071067811865475,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7071067811865475
+      ]
+    ],
+    "num_columns": 18,
+    "num_rows": 6,
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "weak_functional",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "weak_poisson_1d",
+    "rank": 6,
+    "smallest_singular_value": 0.13446038424782747,
+    "trial_space": "C^1([-1,1])"
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper weak-functional positivity theorem plus finite-jet functional-independence certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "weak_functional",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "positive"
+  },
+  "problem": {
+    "constraint_count": 6,
+    "constraint_group_sizes": {
+      "boundary": 2,
+      "weak_residual": 4
+    },
+    "constraints": [
+      {
+        "group": "weak_residual",
+        "name": "weak_legendre_test_1",
+        "physical_point": null,
+        "target": -0.34041520482376475,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.03290236524785936,
+            "output": 0,
+            "point": [
+              -0.9894009349916499
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.07201882430900595,
+            "output": 0,
+            "point": [
+              -0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.10088490118545144,
+            "output": 0,
+            "point": [
+              -0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.11530394185877535,
+            "output": 0,
+            "point": [
+              -0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.11320538249243214,
+            "output": 0,
+            "point": [
+              -0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.09488897534020341,
+            "output": 0,
+            "point": [
+              -0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.06297854916017212,
+            "output": 0,
+            "point": [
+              -0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.02204562567690893,
+            "output": 0,
+            "point": [
+              -0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.02204562567690893,
+            "output": 0,
+            "point": [
+              0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.06297854916017212,
+            "output": 0,
+            "point": [
+              0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.09488897534020341,
+            "output": 0,
+            "point": [
+              0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.11320538249243214,
+            "output": 0,
+            "point": [
+              0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.11530394185877535,
+            "output": 0,
+            "point": [
+              0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.10088490118545144,
+            "output": 0,
+            "point": [
+              0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.07201882430900595,
+            "output": 0,
+            "point": [
+              0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.03290236524785936,
+            "output": 0,
+            "point": [
+              0.9894009349916499
+            ]
+          }
+        ]
+      },
+      {
+        "group": "weak_residual",
+        "name": "weak_legendre_test_2",
+        "physical_point": null,
+        "target": -0.28053518088112395,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.04157393128985521,
+            "output": 0,
+            "point": [
+              -0.9894009349916499
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.08251834070977238,
+            "output": 0,
+            "point": [
+              -0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.09388270152120172,
+            "output": 0,
+            "point": [
+              -0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.07014271354721115,
+            "output": 0,
+            "point": [
+              -0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.017185608146225082,
+            "output": 0,
+            "point": [
+              -0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.04956860420348202,
+            "output": 0,
+            "point": [
+              -0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.11001702798597605,
+            "output": 0,
+            "point": [
+              -0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.14571766302480818,
+            "output": 0,
+            "point": [
+              -0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.14571766302480818,
+            "output": 0,
+            "point": [
+              0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.11001702798597605,
+            "output": 0,
+            "point": [
+              0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.04956860420348202,
+            "output": 0,
+            "point": [
+              0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.017185608146225082,
+            "output": 0,
+            "point": [
+              0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.07014271354721115,
+            "output": 0,
+            "point": [
+              0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.09388270152120172,
+            "output": 0,
+            "point": [
+              0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.08251834070977238,
+            "output": 0,
+            "point": [
+              0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.04157393128985521,
+            "output": 0,
+            "point": [
+              0.9894009349916499
+            ]
+          }
+        ]
+      },
+      {
+        "group": "weak_residual",
+        "name": "weak_legendre_test_3",
+        "physical_point": null,
+        "target": 0.018262173569227467,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.04760980613949343,
+            "output": 0,
+            "point": [
+              -0.9894009349916499
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.08036876581389474,
+            "output": 0,
+            "point": [
+              -0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.057526099883219814,
+            "output": 0,
+            "point": [
+              -0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.012929759032321395,
+            "output": 0,
+            "point": [
+              -0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.09434259852382373,
+            "output": 0,
+            "point": [
+              -0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.141401620144579,
+            "output": 0,
+            "point": [
+              -0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.12522993744204633,
+            "output": 0,
+            "point": [
+              -0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.04975287627007442,
+            "output": 0,
+            "point": [
+              -0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.04975287627007442,
+            "output": 0,
+            "point": [
+              0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.12522993744204633,
+            "output": 0,
+            "point": [
+              0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.141401620144579,
+            "output": 0,
+            "point": [
+              0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.09434259852382373,
+            "output": 0,
+            "point": [
+              0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.012929759032321395,
+            "output": 0,
+            "point": [
+              0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.057526099883219814,
+            "output": 0,
+            "point": [
+              0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.08036876581389474,
+            "output": 0,
+            "point": [
+              0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.04760980613949343,
+            "output": 0,
+            "point": [
+              0.9894009349916499
+            ]
+          }
+        ]
+      },
+      {
+        "group": "weak_residual",
+        "name": "weak_legendre_test_4",
+        "physical_point": null,
+        "target": 0.008140502815407527,
+        "terms": [
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.05163849571511858,
+            "output": 0,
+            "point": [
+              -0.9894009349916499
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.06760534761119111,
+            "output": 0,
+            "point": [
+              -0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.004343996033940824,
+            "output": 0,
+            "point": [
+              -0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.08996092467357537,
+            "output": 0,
+            "point": [
+              -0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.13296238632535107,
+            "output": 0,
+            "point": [
+              -0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.07863525648159511,
+            "output": 0,
+            "point": [
+              -0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.040725296942620205,
+            "output": 0,
+            "point": [
+              -0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.13724543117765062,
+            "output": 0,
+            "point": [
+              -0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.13724543117765062,
+            "output": 0,
+            "point": [
+              0.09501250983763744
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.040725296942620205,
+            "output": 0,
+            "point": [
+              0.2816035507792589
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.07863525648159511,
+            "output": 0,
+            "point": [
+              0.45801677765722737
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.13296238632535107,
+            "output": 0,
+            "point": [
+              0.6178762444026438
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": -0.08996092467357537,
+            "output": 0,
+            "point": [
+              0.755404408355003
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.004343996033940824,
+            "output": 0,
+            "point": [
+              0.8656312023878318
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.06760534761119111,
+            "output": 0,
+            "point": [
+              0.9445750230732326
+            ]
+          },
+          {
+            "alpha": [
+              1
+            ],
+            "coefficient": 0.05163849571511858,
+            "output": 0,
+            "point": [
+              0.9894009349916499
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "dirichlet_left",
+        "physical_point": [
+          -1.0
+        ],
+        "target": -0.625883607422146,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary",
+        "name": "dirichlet_right",
+        "physical_point": [
+          1.0
+        ],
+        "target": 1.163797940484597,
+        "terms": [
+          {
+            "alpha": [
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "Weak 1D Poisson constraints int u'v_n' with four energy-orthonormal Legendre tests and 16-point Gauss-Legendre quadrature.",
+    "evaluation_point_count": 161,
+    "family": "weak_elliptic",
+    "independence_witness": "The four normalized Legendre derivatives P_1 through P_4 are linearly independent and no nonzero combination of degree at most four vanishes at all 16 Gauss-Legendre nodes; the two endpoint value atoms are distinct.",
+    "input_dim": 1,
+    "name": "weak_poisson_1d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "weak_functional",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": "C^1([-1,1])"
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 8.753505986909353e-07,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.34400496526003543,
+      "lambda_min": 4.469254075235139e-05,
+      "level_difference_operator_norm": 2.1595127664295977e-05,
+      "lower_bound": 2.3089591849399888e-05,
+      "positivity_threshold": 3.4400496526003546e-09,
+      "relative_lower_bound": 6.711993773678913e-05,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 2.4579631224155187e-09,
+      "status": "positive"
+    },
+    "full_replicate_lambda_min": [
+      4.4690900010430224e-05,
+      4.469562612189765e-05,
+      4.469724855194033e-05,
+      4.468636627279017e-05
+    ],
+    "full_spectrum": {
+      "condition_number": 7697.14497025852,
+      "eigenvalues": [
+        4.469254075235139e-05,
+        0.0003513266688905595,
+        0.004132118341907455,
+        0.024103545527627127,
+        0.34360428364384366,
+        0.34400496526003543
+      ],
+      "lambda_max": 0.34400496526003543,
+      "lambda_min": 4.469254075235139e-05,
+      "numerical_rank": 6,
+      "rank_tolerance": 3.4400496526003546e-09
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 1.392438991657928e-06,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 0.17191101316987867,
+      "lambda_min": 2.0935887762950132e-06,
+      "level_difference_operator_norm": 2.8354973747358343e-05,
+      "lower_bound": -2.626270069925786e-05,
+      "positivity_threshold": 1.7191101316987866e-09,
+      "relative_lower_bound": -0.0001527691578043673,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 4.1349094736923347e-10,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      2.0924967002135317e-06,
+      2.094208250717322e-06,
+      2.093365159491729e-06,
+      2.094241303076888e-06
+    ],
+    "out_spectrum": {
+      "condition_number": 82113.07545988403,
+      "eigenvalues": [
+        2.0935887762950132e-06,
+        1.9661043109249698e-05,
+        0.00048470809938849714,
+        0.004257256348049821,
+        0.16934466521088792,
+        0.17191101316987867
+      ],
+      "lambda_max": 0.17191101316987867,
+      "lambda_min": 2.0935887762950132e-06,
+      "numerical_rank": 6,
+      "rank_tolerance": 1.7191101316987866e-09
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:33.501758+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

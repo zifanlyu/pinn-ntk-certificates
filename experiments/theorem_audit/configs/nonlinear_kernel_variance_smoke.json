@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "output_dir": "experiments/theorem_audit/results/nonlinear_kernel_variance_smoke",
+  "gamma": 1.0,
+  "collocation_points": [0.3, -0.7],
+  "widths": [64, 256],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "polynomial_degree": 2,
+  "hidden_parameter_low": -1.0,
+  "hidden_parameter_high": 1.0,
+  "uncentered_output_weight_mean": 1.0,
+  "shifted_bias_low": 0.0,
+  "shifted_bias_high": 2.0,
+  "threads": 1,
+  "device": "cpu"
+}

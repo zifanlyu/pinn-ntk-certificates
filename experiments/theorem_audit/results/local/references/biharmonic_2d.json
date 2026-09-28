@@ -1,0 +1,1438 @@
+{
+  "artifact_schema_version": 1,
+  "artifact_type": "limiting_ntk_reference",
+  "artifacts": {
+    "npz": {
+      "arrays": [
+        "K_full",
+        "K_full_coarse",
+        "K_full_standard_error",
+        "K_hidden",
+        "K_out",
+        "K_out_coarse",
+        "K_out_standard_error",
+        "full_eigenvalues",
+        "full_replicate_lambda_min",
+        "group_scales",
+        "normalized_targets",
+        "out_eigenvalues",
+        "out_replicate_lambda_min"
+      ],
+      "path": "experiments/theorem_audit/results/local/references/biharmonic_2d.npz",
+      "sha256": "2aa229497561ddb95ff41a63e4e606eec0a938efcaae00274eb58eccd30932e6"
+    }
+  },
+  "config_hash": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "configuration": {
+    "name": "local",
+    "output_dir": "experiments/theorem_audit/results/local",
+    "problems": [
+      "poisson_1d",
+      "variable_elliptic_2d",
+      "heat_1d",
+      "transport_1d",
+      "wave_1d",
+      "biharmonic_2d",
+      "stokes_2d",
+      "weak_poisson_1d",
+      "nonlocal_diffusion_1d",
+      "integro_diff_1d",
+      "caputo_diffusion_1d"
+    ],
+    "reference": {
+      "chunk_size": 512,
+      "coarse_samples": 2048,
+      "confidence_multiplier": 3.182,
+      "fine_samples": 4096,
+      "relative_tolerance": 1e-08,
+      "replicates": 4,
+      "seed": 1729
+    },
+    "runtime": {
+      "deterministic": true,
+      "device": "cpu",
+      "dtype": "float64"
+    },
+    "schema_version": 1,
+    "training": {
+      "checkpoint_every": 25,
+      "learning_rate_factor": 0.2,
+      "nested_prefix": true,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "steps": 500,
+      "widths": [
+        128,
+        512
+      ]
+    }
+  },
+  "configuration_path": "experiments/theorem_audit/configs/local.json",
+  "configuration_sha256": "aece481a2b82552585b21561d82eab7d1b383ba5465d5c5af7e98dabced91d00",
+  "elapsed_seconds": 0.36721360008232296,
+  "experiment": {
+    "activation": "tanh",
+    "architecture": "u_q(x)=m^(-1/2)*sum_j a[j,q]*tanh(w[j]^T*x+b[j])",
+    "constraint_group_scaling": "each scalar row divided by sqrt(number of rows in its group)",
+    "dtype": "float64",
+    "global_output_bias": false,
+    "initialization": "all coordinates of (w,b,a) iid Uniform[-1,1]",
+    "initialization_centered_output_weights": true,
+    "initialization_support": [
+      -1.0,
+      1.0
+    ],
+    "loss": "||group_normalized_prediction-group_normalized_target||_2^2",
+    "normalization_gamma": 1,
+    "optimizer": "deterministic full-batch plain gradient descent",
+    "trainable_parameters": [
+      "w",
+      "b",
+      "a"
+    ]
+  },
+  "positivity_certificate": {
+    "certificate_type": "local_operator_coefficient_rank",
+    "independence_witness": null,
+    "locations": [
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_0",
+          "clamped_normal_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          -1.0,
+          -0.61
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_1",
+          "clamped_normal_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          -1.0,
+          0.32
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "biharmonic_0"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579,
+            0.8944271909999159,
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          -0.68,
+          -0.43
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.0954451150103321
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_4",
+          "clamped_normal_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          -0.52,
+          -1.0
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "biharmonic_1"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579,
+            0.8944271909999159,
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          -0.29,
+          0.24
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.0954451150103321
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_6",
+          "clamped_normal_6"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          -0.27,
+          1.0
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "biharmonic_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579,
+            0.8944271909999159,
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.08,
+          -0.16
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.0954451150103321
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_5",
+          "clamped_normal_5"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            -0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          0.19,
+          -1.0
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "biharmonic_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579,
+            0.8944271909999159,
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.39,
+          0.67
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.0954451150103321
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_7",
+          "clamped_normal_7"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          0.66,
+          1.0
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "biharmonic_4"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.4472135954999579,
+            0.8944271909999159,
+            0.4472135954999579
+          ]
+        ],
+        "num_columns": 3,
+        "num_rows": 1,
+        "physical_point": [
+          0.74,
+          -0.28
+        ],
+        "rank": 1,
+        "smallest_singular_value": 1.0954451150103321
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_2",
+          "clamped_normal_2"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          1.0,
+          -0.22
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      },
+      {
+        "columns": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "output": 0
+          },
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "output": 0
+          }
+        ],
+        "constraint_names": [
+          "clamped_value_3",
+          "clamped_normal_3"
+        ],
+        "full_row_rank": true,
+        "matrix": [
+          [
+            0.35355339059327373,
+            0.0
+          ],
+          [
+            0.0,
+            0.35355339059327373
+          ]
+        ],
+        "num_columns": 2,
+        "num_rows": 2,
+        "physical_point": [
+          1.0,
+          0.73
+        ],
+        "rank": 2,
+        "smallest_singular_value": 0.35355339059327373
+      }
+    ],
+    "passed": true,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "problem": "biharmonic_2d",
+    "trial_space": null
+  },
+  "positivity_classification": {
+    "allows_training": true,
+    "basis": "paper pointwise DNTK positivity theorem plus local operator-rank certificate",
+    "decision": "theory_guaranteed",
+    "interpretation": "QMC estimates the gap size but does not determine positivity for this case",
+    "policy_version": "registry_regime_v1",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "qmc_is_training_gate": false,
+    "qmc_status": "inconclusive"
+  },
+  "problem": {
+    "constraint_count": 21,
+    "constraint_group_sizes": {
+      "boundary_normal": 8,
+      "boundary_value": 8,
+      "interior": 5
+    },
+    "constraints": [
+      {
+        "group": "interior",
+        "name": "biharmonic_0",
+        "physical_point": [
+          -0.68,
+          -0.43
+        ],
+        "target": -0.8696391764085329,
+        "terms": [
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.68,
+              -0.43
+            ]
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "coefficient": 2.0,
+            "output": 0,
+            "point": [
+              -0.68,
+              -0.43
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.68,
+              -0.43
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "biharmonic_1",
+        "physical_point": [
+          -0.29,
+          0.24
+        ],
+        "target": -0.2552563563933215,
+        "terms": [
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.29,
+              0.24
+            ]
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "coefficient": 2.0,
+            "output": 0,
+            "point": [
+              -0.29,
+              0.24
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.29,
+              0.24
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "biharmonic_2",
+        "physical_point": [
+          0.08,
+          -0.16
+        ],
+        "target": 0.5511808105999558,
+        "terms": [
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.08,
+              -0.16
+            ]
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "coefficient": 2.0,
+            "output": 0,
+            "point": [
+              0.08,
+              -0.16
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.08,
+              -0.16
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "biharmonic_3",
+        "physical_point": [
+          0.39,
+          0.67
+        ],
+        "target": 1.241837713913673,
+        "terms": [
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.39,
+              0.67
+            ]
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "coefficient": 2.0,
+            "output": 0,
+            "point": [
+              0.39,
+              0.67
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.39,
+              0.67
+            ]
+          }
+        ]
+      },
+      {
+        "group": "interior",
+        "name": "biharmonic_4",
+        "physical_point": [
+          0.74,
+          -0.28
+        ],
+        "target": 1.6355848807531048,
+        "terms": [
+          {
+            "alpha": [
+              4,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.74,
+              -0.28
+            ]
+          },
+          {
+            "alpha": [
+              2,
+              2
+            ],
+            "coefficient": 2.0,
+            "output": 0,
+            "point": [
+              0.74,
+              -0.28
+            ]
+          },
+          {
+            "alpha": [
+              0,
+              4
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.74,
+              -0.28
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_0",
+        "physical_point": [
+          -1.0,
+          -0.61
+        ],
+        "target": -0.23994553294854584,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -1.0,
+              -0.61
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_0",
+        "physical_point": [
+          -1.0,
+          -0.61
+        ],
+        "target": -0.4107416316996555,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -1.0,
+              -0.61
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_1",
+        "physical_point": [
+          -1.0,
+          0.32
+        ],
+        "target": -0.454280144567734,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -1.0,
+              0.32
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_1",
+        "physical_point": [
+          -1.0,
+          0.32
+        ],
+        "target": -0.6596717259534417,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -1.0,
+              0.32
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_2",
+        "physical_point": [
+          1.0,
+          -0.22
+        ],
+        "target": 0.8353471387270364,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0,
+              -0.22
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_2",
+        "physical_point": [
+          1.0,
+          -0.22
+        ],
+        "target": 0.3737092199270521,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0,
+              -0.22
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_3",
+        "physical_point": [
+          1.0,
+          0.73
+        ],
+        "target": 0.8399198047767665,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0,
+              0.73
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_3",
+        "physical_point": [
+          1.0,
+          0.73
+        ],
+        "target": 0.35736037824247385,
+        "terms": [
+          {
+            "alpha": [
+              1,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              1.0,
+              0.73
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_4",
+        "physical_point": [
+          -0.52,
+          -1.0
+        ],
+        "target": 0.04895585047706765,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.52,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_4",
+        "physical_point": [
+          -0.52,
+          -1.0
+        ],
+        "target": 0.20276317000119257,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              -0.52,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_5",
+        "physical_point": [
+          0.19,
+          -1.0
+        ],
+        "target": 0.18510169081605055,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.19,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_5",
+        "physical_point": [
+          0.19,
+          -1.0
+        ],
+        "target": -0.3521490476493768,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": -1.0,
+            "output": 0,
+            "point": [
+              0.19,
+              -1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_6",
+        "physical_point": [
+          -0.27,
+          1.0
+        ],
+        "target": 0.09821406714763979,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.27,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_6",
+        "physical_point": [
+          -0.27,
+          1.0
+        ],
+        "target": 0.012128039617908884,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              -0.27,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_value",
+        "name": "clamped_value_7",
+        "physical_point": [
+          0.66,
+          1.0
+        ],
+        "target": 0.5778842755076234,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              0
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.66,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "group": "boundary_normal",
+        "name": "clamped_normal_7",
+        "physical_point": [
+          0.66,
+          1.0
+        ],
+        "target": -0.5006765965767134,
+        "terms": [
+          {
+            "alpha": [
+              0,
+              1
+            ],
+            "coefficient": 1.0,
+            "output": 0,
+            "point": [
+              0.66,
+              1.0
+            ]
+          }
+        ]
+      }
+    ],
+    "description": "Clamped 2D biharmonic equation Delta^2u=f with co-located value/normal data.",
+    "evaluation_point_count": 1023,
+    "family": "fourth_order_elliptic",
+    "independence_witness": null,
+    "input_dim": 2,
+    "name": "biharmonic_2d",
+    "output_dim": 1,
+    "positivity_regime": "automatic",
+    "positivity_route": "pointwise_dntk",
+    "positivity_scope": "exact_discrete_prediction_map",
+    "trial_space": null
+  },
+  "reference": {
+    "coarse_samples": 2048,
+    "fine_samples": 4096,
+    "full_elementwise_se_frobenius_norm": 0.03673575643833059,
+    "full_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 16.901137366310284,
+      "lambda_min": 3.358220728021158e-06,
+      "level_difference_operator_norm": 0.08835775756176788,
+      "lower_bound": -0.08835441292163874,
+      "positivity_threshold": 1.6901137366310285e-07,
+      "relative_lower_bound": -0.005227719946100145,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 4.267944340647352e-09,
+      "status": "inconclusive"
+    },
+    "full_replicate_lambda_min": [
+      3.3628077325194746e-06,
+      3.3515595026033188e-06,
+      3.367815934691688e-06,
+      3.3504024315462233e-06
+    ],
+    "full_spectrum": {
+      "condition_number": 5032765.483604566,
+      "eigenvalues": [
+        3.358220728021158e-06,
+        1.6500422544473655e-05,
+        8.998047525549947e-05,
+        0.0002489090709496417,
+        0.0005980813585938081,
+        0.002584488267061508,
+        0.003981217605221054,
+        0.00512589728272188,
+        0.006636526539524875,
+        0.00909425769634901,
+        0.010777074494486664,
+        0.01883031020428971,
+        0.03835451375366418,
+        0.24720292990005488,
+        0.3143162829372641,
+        0.3205169693736281,
+        5.863614290871995,
+        8.304261712367946,
+        8.976434566687137,
+        14.812284057286522,
+        16.901137366310284
+      ],
+      "lambda_max": 16.901137366310284,
+      "lambda_min": 3.358220728021158e-06,
+      "numerical_rank": 21,
+      "rank_tolerance": 1.6901137366310285e-07
+    },
+    "method": "replicated_scrambled_sobol_two_level_analytic_a",
+    "out_elementwise_se_frobenius_norm": 0.008863052427340343,
+    "out_positivity": {
+      "confidence_multiplier": 3.182,
+      "lambda_max": 1.989404993146348,
+      "lambda_min": 1.4947486713856864e-07,
+      "level_difference_operator_norm": 0.019636765059095704,
+      "lower_bound": -0.019636616314589784,
+      "positivity_threshold": 1.989404993146348e-08,
+      "relative_lower_bound": -0.009870597682341919,
+      "relative_tolerance": 1e-08,
+      "replicate_lambda_min_standard_error": 2.2952898103020347e-10,
+      "status": "inconclusive"
+    },
+    "out_replicate_lambda_min": [
+      1.4920968452441468e-07,
+      1.501427230669227e-07,
+      1.492966643938485e-07,
+      1.491829232725305e-07
+    ],
+    "out_spectrum": {
+      "condition_number": 13309294.272876639,
+      "eigenvalues": [
+        1.4947486713856864e-07,
+        9.681939643829769e-07,
+        4.728912550431639e-06,
+        1.3605315801472935e-05,
+        3.63726622731888e-05,
+        0.00016881831783491065,
+        0.00030003723127836475,
+        0.0003839879577691201,
+        0.000785753342990813,
+        0.0011490412362781459,
+        0.00136835654217131,
+        0.002824173639154632,
+        0.006550700482782669,
+        0.09771531581033174,
+        0.12047974074871222,
+        0.12900192112755643,
+        0.5748094635625257,
+        0.6928147197481351,
+        0.7972806923488973,
+        1.847168866320672,
+        1.989404993146348
+      ],
+      "lambda_max": 1.989404993146348,
+      "lambda_min": 1.4947486713856864e-07,
+      "numerical_rank": 21,
+      "rank_tolerance": 1.989404993146348e-08
+    },
+    "replicates": 4,
+    "seed": 1729
+  },
+  "runtime": {
+    "command": [
+      "python.exe",
+      "experiments/theorem_audit/run.py",
+      "reference",
+      "--config",
+      "experiments/theorem_audit/configs/local.json"
+    ],
+    "cpu_count": 16,
+    "created_utc": "2026-09-24T23:16:32.831394+00:00",
+    "deterministic_algorithms_enabled": true,
+    "device": "cpu",
+    "device_name": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "git": {
+      "commit": "cee19f405038c8aac64df5996e60b1e2c819e123",
+      "dirty": true,
+      "status_entry_count": 5
+    },
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.6",
+    "slurm": {},
+    "torch": "2.13.0+cpu",
+    "torch_cuda_build": null,
+    "torch_num_interop_threads": 8,
+    "torch_num_threads": 8,
+    "uv_lock_sha256": "e7e0e349b38c63fcc1a08891fd05751fa87b8a4592c59cda412fb2cb03dd84a3",
+    "working_directory": "."
+  },
+  "source": {
+    "files": {
+      "experiments/theorem_audit/constraints.py": "a68751bbbc9b89c7de7daaf2f70ad2de29de85cdab09fe302782cda7dd9c08e0",
+      "experiments/theorem_audit/engine.py": "23c1d326698f909098bee53051c77b26f901274ec145efb57d517411fa90afd5",
+      "experiments/theorem_audit/features.py": "b3e6a4aebbab0f5eacc1748cf4d3ceae8e8850e720ffcbf2dfd37e211556f235",
+      "experiments/theorem_audit/problems.py": "af8710ee75dd4bbe0d5ba951989fb7cd25835b296d4d9327cff51632069ee108",
+      "experiments/theorem_audit/run.py": "178f493d8ff8f46868543436d89acf2e0f19695f0bae3578c1a3dbcbb8e8bd93"
+    },
+    "sha256": "087736db3602ab52efa4ab2b48ec6036f1675d22094972b03745d82e56c2870c"
+  },
+  "status": "complete",
+  "strict_json_nonfinite_policy": "non-finite floating diagnostics are serialized as null"
+}

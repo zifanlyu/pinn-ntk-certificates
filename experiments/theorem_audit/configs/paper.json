@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "name": "paper",
+  "output_dir": "experiments/theorem_audit/results/paper",
+  "runtime": {
+    "dtype": "float64",
+    "device": "cpu",
+    "deterministic": true
+  },
+  "problems": [
+    "poisson_1d",
+    "variable_elliptic_2d",
+    "heat_1d",
+    "transport_1d",
+    "wave_1d",
+    "biharmonic_2d",
+    "stokes_2d",
+    "weak_poisson_1d",
+    "nonlocal_diffusion_1d",
+    "integro_diff_1d",
+    "caputo_diffusion_1d"
+  ],
+  "reference": {
+    "coarse_samples": 16384,
+    "fine_samples": 32768,
+    "replicates": 8,
+    "chunk_size": 2048,
+    "seed": 1729,
+    "relative_tolerance": 1e-8,
+    "confidence_multiplier": 2.365
+  },
+  "training": {
+    "widths": [256, 1024, 4096],
+    "seeds": [0, 1, 2, 3, 4],
+    "steps": 2000,
+    "learning_rate_factor": 0.2,
+    "checkpoint_every": 100,
+    "nested_prefix": true
+  }
+}
